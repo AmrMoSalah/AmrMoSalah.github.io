@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amr Salah — Data Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy: #101d2e;
+    --navy-2: #16283f;
+    --paper: #edeadf;
+    --paper-2: #e3ded0;
+    --ink: #15202e;
+    --cyan: #5fb8cf;
+    --amber: #d98e3c;
+    --line-dark: rgba(95,184,207,0.28);
+    --line-light: rgba(21,32,46,0.18);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'IBM Plex Mono', monospace;
+    background:var(--paper);
+    color:var(--ink);
+    font-size:15px;
+    line-height:1.6;
+  }
+  h1,h2,h3{
+    font-family:'Space Grotesk', sans-serif;
+    margin:0;
+    font-weight:600;
+  }
+  a{color:inherit;}
+  .wrap{max-width:920px; margin:0 auto; padding:0 28px;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:
+      linear-gradient(var(--line-dark) 1px, transparent 1px) 0 0/40px 40px,
+      linear-gradient(90deg, var(--line-dark) 1px, transparent 1px) 0 0/40px 40px,
+      var(--navy);
+    color:var(--paper);
+    padding:88px 0 64px;
+    border-bottom:2px solid var(--cyan);
+  }
+  .hero-inner{
+    display:grid;
+    grid-template-columns: 1fr 220px;
+    gap:40px;
+    align-items:end;
+  }
+  .hero h1{
+    font-size:56px;
+    letter-spacing:-0.01em;
+    line-height:1.02;
+  }
+  .hero .role{
+    margin-top:10px;
+    font-size:15px;
+    color:var(--cyan);
+  }
+  .hero .bio{
+    max-width:520px;
+    margin-top:22px;
+    font-size:14.5px;
+    color:#cfd7de;
+  }
+  .titleblock{
+    border:1px solid var(--line-dark);
+    font-size:11.5px;
+    color:#a9c3cf;
+  }
+  .titleblock .row{
+    display:flex;
+    justify-content:space-between;
+    gap:8px;
+    padding:7px 10px;
+    border-bottom:1px solid var(--line-dark);
+  }
+  .titleblock .row:last-child{border-bottom:none;}
+  .titleblock .row span:first-child{color:#6f8b96;}
+  .titleblock .row span:last-child{color:var(--paper); text-align:right;}
+
+  .cv-link{
+    display:inline-block;
+    margin-top:20px;
+    font-size:12.5px;
+    color:var(--navy);
+    background:var(--cyan);
+    padding:8px 14px;
+    text-decoration:none;
+    letter-spacing:0.02em;
+  }
+  .cv-link:hover{background:var(--amber); color:var(--paper);}
+
+  .skills{
+    margin-top:36px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .skill-tag{
+    border:1px solid var(--line-dark);
+    padding:5px 11px;
+    font-size:12px;
+    color:var(--cyan);
+    letter-spacing:0.02em;
+  }
+
+  /* ---------- SECTION HEADERS ---------- */
+  .section-label{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin:0 0 34px;
+    color:#6b6355;
+    font-size:12px;
+  }
+  .section-label::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:var(--line-light);
+  }
+
+  /* ---------- PROJECTS ---------- */
+  .projects{padding:80px 0;}
+  .sheet{
+    border-top:1px solid var(--line-light);
+    padding:38px 0;
+    display:grid;
+    grid-template-columns: 90px 1fr;
+    gap:28px;
+  }
+  .sheet:last-child{border-bottom:1px solid var(--line-light);}
+  .sheet-no{
+    font-size:12px;
+    color:#8a8371;
+    padding-top:4px;
+  }
+  .sheet h3{
+    font-size:24px;
+    margin-bottom:12px;
+  }
+  .sheet .problem{
+    font-size:14px;
+    color:#3c4a52;
+    max-width:620px;
+  }
+  .finding{
+    margin-top:18px;
+    padding-left:18px;
+    border-left:2px solid var(--amber);
+    font-size:14px;
+  }
+  .finding .tag{
+    display:block;
+    font-size:11px;
+    color:var(--amber);
+    margin-bottom:4px;
+    letter-spacing:0.03em;
+  }
+  .sheet-footer{
+    margin-top:22px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:14px;
+  }
+  .tools{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+  }
+  .tool-chip{
+    font-size:11px;
+    color:#5a6a72;
+    border:1px solid var(--line-light);
+    padding:4px 9px;
+  }
+  .view-link{
+    font-size:13px;
+    color:var(--ink);
+    border-bottom:1px solid var(--ink);
+    padding-bottom:1px;
+    white-space:nowrap;
+    text-decoration:none;
+  }
+  .view-link:hover{color:var(--amber); border-color:var(--amber);}
+
+  /* ---------- CONTACT / FOOTER TITLE BLOCK ---------- */
+  footer{
+    background:var(--navy);
+    color:var(--paper);
+    padding:64px 0 0;
+  }
+  footer .foot-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    flex-wrap:wrap;
+    gap:24px;
+    padding-bottom:40px;
+    border-bottom:1px solid var(--line-dark);
+  }
+  footer h2{font-size:28px;}
+  footer .foot-note{
+    max-width:380px;
+    font-size:13.5px;
+    color:#a9b4bc;
+    margin-top:10px;
+  }
+  .contact-block{
+    border:1px solid var(--line-dark);
+    min-width:280px;
+  }
+  .contact-block .row{
+    display:flex;
+    justify-content:space-between;
+    gap:14px;
+    padding:10px 14px;
+    border-bottom:1px solid var(--line-dark);
+    font-size:12.5px;
+  }
+  .contact-block .row:last-child{border-bottom:none;}
+  .contact-block .row span:first-child{color:#6f8b96;}
+  .contact-block .row a{color:var(--cyan); text-decoration:none;}
+  .contact-block .row a:hover{color:var(--amber);}
+  .strip{
+    padding:16px 0;
+    text-align:center;
+    font-size:11px;
+    color:#5c7178;
+    letter-spacing:0.03em;
+  }
+
+  @media (max-width: 700px){
+    .hero-inner{grid-template-columns:1fr;}
+    .titleblock{max-width:280px;}
+    .hero h1{font-size:38px;}
+    .sheet{grid-template-columns:1fr;}
+    .sheet-no{padding-top:0;}
+    footer .foot-top{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div>
+      <h1>Amr Salah</h1>
+      <div class="role">Data Analyst — formerly Civil Engineering</div>
+      <p class="bio">Civil engineer by training, data analyst by curiosity. I got hooked on data because there's always more of it than any one person could explore — so I focus on the datasets that matter and turn them into insights worth acting on.</p>
+      <a class="cv-link" href="Amr_Salah_CV.pdf" download>Download CV ↓</a>
+      <div class="skills">
+        <span class="skill-tag">Excel</span>
+        <span class="skill-tag">Power BI</span>
+        <span class="skill-tag">Power Query</span>
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Pandas</span>
+        <span class="skill-tag">NumPy</span>
+        <span class="skill-tag">Matplotlib</span>
+        <span class="skill-tag">Seaborn</span>
+        <span class="skill-tag">Plotly</span>
+      </div>
+    </div>
+    <div class="titleblock">
+      <div class="row"><span>NAME</span><span>Amr Salah</span></div>
+      <div class="row"><span>ROLE</span><span>Data Analyst</span></div>
+      <div class="row"><span>BACKGROUND</span><span>Civil Eng.</span></div>
+      <div class="row"><span>SHEETS</span><span>01–04</span></div>
+      <div class="row"><span>STATUS</span><span>Open to work</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="projects">
+  <div class="wrap">
+    <div class="section-label">SELECTED PROJECTS</div>
+
+    <div class="sheet">
+      <div class="sheet-no">SHEET<br>01/04</div>
+      <div>
+        <h3>Credit Risk Analysis Dashboard</h3>
+        <p class="problem">Lenders need a clear read on borrower risk to price loans fairly and limit defaults. This project profiles borrowers and models the likelihood of default across loan grades.</p>
+        <div class="finding">
+          <span class="tag">KEY FINDING</span>
+          Loan grade G borrowers default the most — and default rates climb steadily as loan grade gets riskier.
+        </div>
+        <div class="sheet-footer">
+          <div class="tools">
+            <span class="tool-chip">Power BI</span>
+            <span class="tool-chip">Power Query</span>
+            <span class="tool-chip">Excel</span>
+          </div>
+          <a class="view-link" href="https://github.com/AmrMoSalah/Credit-Risk-Analysis" target="_blank" rel="noopener">View project ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="sheet">
+      <div class="sheet-no">SHEET<br>02/04</div>
+      <div>
+        <h3>Electric Vehicle (EV) Market Analysis</h3>
+        <p class="problem">As EV adoption grows, manufacturers and policymakers need visibility into adoption patterns and incentive eligibility to plan infrastructure and target the right markets.</p>
+        <div class="finding">
+          <span class="tag">KEY FINDING</span>
+          77% of vehicles in Washington State are CAFV-eligible, and Tesla holds 65% of market share — strong incentive coverage alongside heavy manufacturer concentration.
+        </div>
+        <div class="sheet-footer">
+          <div class="tools">
+            <span class="tool-chip">Excel</span>
+          </div>
+          <a class="view-link" href="https://github.com/AmrMoSalah/Electric-vehicle-EVs-Data-Analysis" target="_blank" rel="noopener">View project ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="sheet">
+      <div class="sheet-no">SHEET<br>03/04</div>
+      <div>
+        <h3>MTA Daily Ridership Analysis</h3>
+        <p class="problem">Major disruptions like COVID-19 reshape how people move. Transit authorities need to measure that impact to plan capacity, budgets, and recovery strategy.</p>
+        <div class="finding">
+          <span class="tag">KEY FINDING</span>
+          Ridership across every mode of transport dropped by roughly 50% during the pandemic compared to estimated pre-pandemic levels.
+        </div>
+        <div class="sheet-footer">
+          <div class="tools">
+            <span class="tool-chip">Excel</span>
+            <span class="tool-chip">Power BI</span>
+          </div>
+          <a class="view-link" href="https://github.com/AmrMoSalah/MTA-Daily-Ridershp" target="_blank" rel="noopener">View project ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="sheet">
+      <div class="sheet-no">SHEET<br>04/04</div>
+      <div>
+        <h3>US Bikeshare System Data</h3>
+        <p class="problem">Bikeshare operators and city planners need a fast way to explore ridership data across cities to spot usage patterns and answer ad-hoc questions.</p>
+        <div class="finding">
+          <span class="tag">KEY FINDING</span>
+          Built an interactive Python tool that lets users filter U.S. bikeshare data by city, month, and day to instantly calculate ridership statistics.
+        </div>
+        <div class="sheet-footer">
+          <div class="tools">
+            <span class="tool-chip">Python</span>
+            <span class="tool-chip">Pandas</span>
+            <span class="tool-chip">NumPy</span>
+          </div>
+          <a class="view-link" href="https://github.com/AmrMoSalah/Bike_share/tree/master" target="_blank" rel="noopener">View project ↗</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <h2>Let's talk data.</h2>
+        <p class="foot-note">Open to data analyst roles and freelance projects. Reach out through any of the channels below.</p>
+      </div>
+      <div class="contact-block">
+        <div class="row"><span>EMAIL</span><a href="mailto:iamamrsalah@outlook.com">iamamrsalah@outlook.com</a></div>
+        <div class="row"><span>LINKEDIN</span><a href="https://www.linkedin.com/in/amrmsalah96" target="_blank" rel="noopener">amrmsalah96</a></div>
+        <div class="row"><span>GITHUB</span><a href="https://github.com/AmrMoSalah" target="_blank" rel="noopener">AmrMoSalah</a></div>
+        <div class="row"><span>RESUME</span><a href="Amr_Salah_CV.pdf" download>Download CV ↓</a></div>
+      </div>
+    </div>
+    <div class="strip">© 2026 AMR SALAH — DATA ANALYSIS PORTFOLIO</div>
+  </div>
+</footer>
+
+</body>
+</html>
